@@ -1,0 +1,20 @@
+{% extends 'main.html' %}
+{%load staticfiles %}
+
+{% block movie %}
+
+	<h3 align="left">Блог о фильмах</h3>
+	<div class='large-8 cloumns'>
+	{% for movie in movies %}
+		<h4><a href='/movies/get/{{ movie.id }}/'>{{ movie.movie_title }}</a></h4>
+		<p>{{ movie.movie_text }}</p>
+		<p><a href='/movies/addlike/{{ movie.id }}/'><img src='{% static 'like.jpg' %}' width='35px' height='35px'></a>{{ movie.movie_likes }}</p>
+		<h6>Дата публикации: {{ movie.movie_date }}</h6>
+		<form method='LINK' action='/movies/get/{{ movie.id }}/'>
+    	<input type='submit' class='button' value='Подробнее >>'>
+		</form>
+		<hr>
+	{% endfor %}
+	</div>
+{% endblock %}	
+	

@@ -1,0 +1,28 @@
+{% extends 'main.html' %}
+
+{% block movie %}
+
+	<h3 align="left">Выбранная статья</h3>
+	
+		<h4>{{ movie.movie_title }}</h4>
+		<p>{{ movie.movie_text }}</p>
+		<p>Понравилось:{{ movie.movie_likes }}</p>
+		<hr>
+		<h6>Дата публикации: {{ movie.movie_date }}</h6>
+		<hr>
+		<div class='large-offset-1 large-8 columns'>
+		
+			
+				{% for comment in comments %}
+             		<p>{{ comment.comments_text }}</p>
+				{% endfor%}
+			
+			<form action='/movies/addcomment/{{ movie.id }}/' method='post'>
+				{% csrf_token %}
+				{{ form }}
+
+				<input type='submit' class='button' value='Добавить комментарий'>
+			</form>	
+		</div>	
+			
+{% endblock %}		
