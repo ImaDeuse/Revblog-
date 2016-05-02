@@ -38,6 +38,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'firstBlog',
+    'loginsys',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -59,6 +60,8 @@ TEMPLATES = [
         'DIRS': [
                 os.path.join(BASE_DIR, 'templates'),
                 '/django_code/blog/firstBlog/templates_extended',
+                '/django_code/blog/loginsys/templates',
+
         ],
         'APP_DIRS': True,
         'OPTIONS': {

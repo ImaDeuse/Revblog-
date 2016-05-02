@@ -1,4 +1,5 @@
 {% extends 'main.html' %}
+{%load staticfiles %}
 
 {% block movie %}
 
@@ -6,7 +7,7 @@
 	
 		<h4>{{ movie.movie_title }}</h4>
 		<p>{{ movie.movie_text }}</p>
-		<p>Понравилось:{{ movie.movie_likes }}</p>
+		<p><a href='/movies/addlike/{{ movie.id }}/'><img src='{% static 'like.jpg' %}' width='35px' height='35px'></a>{{ movie.movie_likes }}</p>
 		<hr>
 		<h6>Дата публикации: {{ movie.movie_date }}</h6>
 		<hr>
@@ -15,14 +16,20 @@
 			
 				{% for comment in comments %}
              		<p>{{ comment.comments_text }}</p>
-				{% endfor%}
+				{% endfor %}
 			
-			<form action='/movies/addcomment/{{ movie.id }}/' method='post'>
-				{% csrf_token %}
-				{{ form }}
+			{% if username %}
+
+				<form action='/movies/addcomment/{{ movie.id }}/' method='post'>
+
+					{% csrf_token %}
+					{{ form }}
 
 				<input type='submit' class='button' value='Добавить комментарий'>
-			</form>	
+				</form>
+
+			{% endif %}	
+
 		</div>	
 			
 {% endblock %}		

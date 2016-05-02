@@ -24,6 +24,7 @@ admin.autodiscover()
 urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
     url(r'^basicview/', include('firstBlog.urls')),
+    url(r'^auth/', include('loginsys.urls')),
     url(r'^', include('firstBlog.urls')),
 
 )
