@@ -12,15 +12,15 @@
 <body>
 
 	<div class='top-bar'>
-		<section class='top-bar-section'>
+		
 			<ul class='right'>
 				{% if username %}
-					<li align="right"><a href='/auth/logout/'><font size='4' color='#ffffff'>Выйти ({{ username }}) </font></a></li>
+					<li align="right"><a href='/auth/logout/'><font size='3' color='#ffffff'>Выйти ({{ username }}) </font></a></li>
 				{% else %}
-					<li align="right"><a href='/auth/login/'><font size='4' color='#ffffff'>Войти</font></a></li>
+					<li align="right"><a href='/auth/login/'><font size='3' color='#ffffff'>Войти</font></a></li>
 				{% endif %}
 			</ul>
-		</section>			
+				
 	</div>
 
 

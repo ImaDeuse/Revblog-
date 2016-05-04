@@ -12,6 +12,7 @@ urlpatterns = [
     url(r'^movies/get/(?P<movie_id>\d+)/$', 'firstBlog.views.movie'),
     url(r'^movies/addlike/(?P<movie_id>\d+)/$', 'firstBlog.views.addlike'),
     url(r'^movies/addcomment/(?P<movie_id>\d+)/$', 'firstBlog.views.addcomment'),
+    url(r'^page/(\d+)/$', 'firstBlog.views.movies'),
     url(r'^', 'firstBlog.views.movies'),
 
 ]

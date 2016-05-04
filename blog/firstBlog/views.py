@@ -8,7 +8,7 @@ from django.core.exceptions import ObjectDoesNotExist
 from firstBlog.forms import CommentForm
 from django.template.context_processors import csrf
 from django.contrib import auth
-
+from django.core.paginator import Paginator
 # Create your views here.
 
 
@@ -31,8 +31,10 @@ def template_3(request):
 	return render_to_response('view.html', {'name': view})
 
 
-def movies(request):
-	return render_to_response('movies.html', {'movies': Movie.objects.all(), 'username': auth.get_user(request).username})
+def movies(request, page_number=1):
+	all_movies = Movie.objects.all()
+	active_page = Paginator(all_movies, 4)
+	return render_to_response('movies.html', {'movies': active_page.page(page_number), 'username': auth.get_user(request).username})
 
 
 def movie(request, movie_id=1):

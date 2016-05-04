@@ -1181,7 +1181,7 @@ blockquote,
 th,
 td {
   margin: 0;
-  padding: 0; }
+  padding: 0px;}
 
 p {
   font-size: inherit;
@@ -1262,7 +1262,8 @@ a {
   color: #2199e8;
   text-decoration: none;
   line-height: inherit;
-  cursor: pointer; }
+  cursor: pointer;
+  padding-top: 5px; }
   a:hover, a:focus {
     color: #1585cf; }
   a img {
@@ -1296,6 +1297,11 @@ ul {
 
 ul li a:hover{
   background: #000000;
+  width: 0;
+ /* padding-top: 10px;
+  padding-bottom: 20px;
+  padding-left: 5px;
+  padding-right: 3px;*/
 }
 
 
@@ -2515,8 +2521,9 @@ select {
   background: #2199e8;
   color: #fefefe; }
   .label.secondary {
-    background: #777;
-    color: #fefefe; }
+    background: #DCDCDC;
+    color: #fefefe;
+    border-radius: 100px; }
   .label.success {
     background: #3adb76;
     color: #fefefe; }
@@ -2737,7 +2744,7 @@ body {
   .pagination li {
     font-size: 0.875rem;
     margin-right: 0.0625rem;
-    border-radius: 0;
+    border-radius: 5px;
     display: none; }
     .pagination li:last-child, .pagination li:first-child {
       display: inline-block; }
@@ -3357,7 +3364,7 @@ table.hover tr:nth-of-type(even):hover {
             transform: translateY(-50%); }
 
 .top-bar {
-  padding: 0.5rem; }
+  padding-right: 0.5rem; }
   .top-bar::before, .top-bar::after {
     content: ' ';
     display: table; }
