@@ -50,19 +50,20 @@ def movie(request, movie_id=1):
 
 
 def addlike(request, movie_id):
+	back_url = request.META['HTTP_REFERER']
 	try:
 		if movie_id in request.COOKIES:
-			redirect('/')
+			redirect(back_url)
 		else:	
 			movie = Movie.objects.get(id=movie_id)
 			movie.movie_likes += 1
 			movie.save()
-			response = redirect('/')
+			response = redirect(back_url)
 			response.set_cookie(movie_id, 'test')
 		   	return response
 	except ObjectDoesNotExist:
 		raise Http404
-	return redirect('/')	
+	return redirect(back_url)	
 
 
 def addcomment(request, movie_id):

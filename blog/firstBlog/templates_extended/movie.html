@@ -7,7 +7,7 @@
 	
 		<h4>{{ movie.movie_title }}</h4>
 		<p>{{ movie.movie_text }}</p>
-		<p><a href='/movies/addlike/{{ movie.id }}/'><img src='{% static 'goodlike.png' %}' width='20px' height='35px'></a>({{ movie.movie_likes }})</p>
+		<p><a href='/movies/addlike/{{ movie.id }}/'><img src='{% static 'goodlike.png' %}' width='20px' height='35px'></a> {{ movie.movie_likes }}</p>
 		<hr>
 		<h6>Дата публикации: {{ movie.movie_date }}</h6>
 		<hr>
@@ -21,14 +21,18 @@
 			{% if username %}
 
 				<form action='/movies/addcomment/{{ movie.id }}/' method='post'>
-
 					{% csrf_token %}
 					{{ form }}
-
 				<input type='submit' class='button' value='Добавить комментарий'>
 				</form>
 
-			{% endif %}	
+			{% else %}
+				<div class='large-offset-2 large-13 columns'>	
+					<hr>
+					<h4 align='left'><a href='/auth/login/'>Авторизируйтесь, чтобы оставить комментарий</a></h4>
+					<hr>
+				</div>
+			{% endif %}
 
 		</div>	
 			

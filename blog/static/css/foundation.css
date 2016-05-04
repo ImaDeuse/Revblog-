@@ -2743,7 +2743,7 @@ body {
     clear: both; }
   .pagination li {
     font-size: 0.875rem;
-    margin-right: 0.0625rem;
+    margin-right: 0.625rem;
     border-radius: 5px;
     display: none; }
     .pagination li:last-child, .pagination li:first-child {
@@ -2754,9 +2754,9 @@ body {
   .pagination a,
   .pagination button {
     color: #0a0a0a;
-    display: block;
-    padding: 0.1875rem 0.625rem;
-    border-radius: 0; }
+  
+    padding: 0.1875rem 0.825rem;
+    border-radius: 5px; }
     .pagination a:hover,
     .pagination button:hover {
       background: #e6e6e6; }
@@ -2765,6 +2765,9 @@ body {
     background: #2199e8;
     color: #fefefe;
     cursor: default; }
+    .pagination .current a:hover,
+    .pagination .current button:hover{
+      background: #2199e8;}
   .pagination .disabled {
     padding: 0.1875rem 0.625rem;
     color: #cacaca;
