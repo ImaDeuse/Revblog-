@@ -2,11 +2,9 @@
 {%load staticfiles %}
 
 {% block movie %}
-
-	<h3 align="left">Блог о фильмах</h3>
-	<div class='large-8 cloumns'>
+	<div class='large-8 columns'>
 	{% for movie in movies %}
-		<h4><a href='/movies/get/{{ movie.id }}/'>{{ movie.movie_title }}</a></h4>
+		<h2><a href='/movies/get/{{ movie.id }}/'>{{ movie.movie_title }}</a></h2>
 		<p>{{ movie.movie_text }}</p>
 		<p><a href='/movies/addlike/{{ movie.id }}/'><img src='{% static 'goodlike.png' %}' width='20px' height='35px'></a> {{ movie.movie_likes }}</p>
 		<h6>Дата публикации: {{ movie.movie_date }}</h6>
@@ -16,6 +14,9 @@
 		<hr>
 	{% endfor %}
 	</div>
+	
+	
+	<!-- Пагинация статей -->
 
 	<div class='row'>
 		<div class='large-3 large-offset-5 columns'>
@@ -42,5 +43,8 @@
 			</ul>
 		</div>
 	</div>
+	
+	</div>
+
 {% endblock %}	
 	

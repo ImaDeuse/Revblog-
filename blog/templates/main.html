@@ -1,31 +1,49 @@
 {% load staticfiles %}
 <!DOCTYPE html>
 
-<html>
+<html lang='ru'>
 
 <head>
+	<meta charset='UTF-8'>
 	<title>Главная</title>
 	<link rel="stylesheet" type="text/css" href="{% static 'static/css/foundation.css' %}">
 	<link rel="stylesheet" type="text/css" href="{% static 'firstBlog/style.css' %}">
+	<link href='https://fonts.googleapis.com/css?family=PT+Serif+Caption&subset=cyrillic' rel='stylesheet' type='text/css'>
+    <link href="http://allfont.ru/allfont.css?fonts=pt-sans" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
 
-	<div class='top-bar'>
-		
-			<ul class='right'>
-				{% if username %}
-					<li align="right"><a href='/auth/logout/'><font size='3' color='#ffffff'>Выйти ({{ username }}) </font></a></li>
-				{% else %}
-					<li align="right"><a href='/auth/login/'><font size='3' color='#ffffff'>Войти</font></a></li>
-				{% endif %}
-			</ul>
-				
+	<div id='header'>
+		<div id="logo">
+            <a href="/" title="Перейти на главную">
+                Deuse's Blog
+            </a>
+        </div>
+			
+		<div id='social'>
+			   <a href="https://vk.com/deusetv" title="Моя страничка вконтакте" target="_blank">
+                <img src="{% static "vk.png" %}" alt="Страница ВКонтакте" title="Ссылка на мою страницу ВКонтакте">
+            </a>
+
+            <a href="#" title="Мой аккаунт в телеграме" target="_blank">
+               <img src="{% static "tg.png" %}">
+            </a>
+
+            <a href="https://plus.google.com/u/0/110741867534203362471/posts" title="Почта для связи" target="_blank">
+                <img src="{% static "gmail.png" %}">
+            </a>
+		</div>	
+		<div id='regauth'>
+			{% if username %}
+				<a class='button'  href='/auth/logout/'>Выйти ({{ username }})</a>
+					
+			{% else %}
+				<a class='button' href='/auth/login/'>Войти</a>
+			{% endif %}
+		</div>
 	</div>
-
-
-	<h2 align="left"><a href='/'>Deuse's blog</a></h2>
-
+	
 	<div class='row'>
 
 	{% block movie %}{% endblock %}
@@ -33,6 +51,26 @@
 
 	</div>
 
+    
 </body>
+	<footer>
+        <div id="rights">
+            <a href'/' title='Блог'>© All rights reserved — TopDeuse 2016.</a>
+        </div>
+        
+        <div id="social">
+            <a href="https://vk.com/deusetv" title="Моя страничка вконтакте" target="_blank">
+                <img src="{% static "vk.png" %}" alt="Страница ВКонтакте" title="Ссылка на мою страницу ВКонтакте">
+            </a>
 
+            <a href="#" title="Мой аккаунт в телеграме" target="_blank">
+               <img src="{% static "tg.png" %}">
+            </a>
+
+            <a href="https://plus.google.com/u/0/110741867534203362471/posts" title="Почта для связи" target="_blank">
+                <img src="{% static "gmail.png" %}">
+            </a>
+        </div>
+    </footer>
 </html>
+
