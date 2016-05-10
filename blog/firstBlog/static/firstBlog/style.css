@@ -93,7 +93,7 @@ li a {
    }
 
    .border-comments{
-      border: 10px solid #1ab2ee ;
+      border: 1px solid #282828 ;
 
       padding: 10px;
    }
@@ -126,6 +126,7 @@ li a {
 #header #logo a {
     position: relative;
     top: 40%;
+    margin-left: 15%;
     font-size: 2.2em;
 }
 
